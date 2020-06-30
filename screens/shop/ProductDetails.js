@@ -41,17 +41,20 @@ const styles = StyleSheet.create({
   },
   actions: {
     alignItems: 'center',
-    marginVertical: 10
+    marginVertical: 15
   },
   price: {
     fontSize: 18,
+    fontFamily: "open-sans-bold",
     color: "#888",
     textAlign: "center",
     marginBottom: 10,
   },
   description: {
     fontSize: 14,
+    fontFamily: 'open-sans',
     marginHorizontal: 15,
+    marginVertical: 5,
     textAlign: "center"
   },
 });

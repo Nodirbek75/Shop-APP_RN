@@ -21,10 +21,14 @@ const rootReducer = combineReducers({
 const store = createStore(rootReducer);
 
 export default function App() {
-  const [isLoading, setIsLoading] = useState(true);
-
-  if (isLoading) {
-    <AppLoading startAsync={fetchFonts} onFinish={() => setIsLoading(false)} />;
+  const [fontLoaded, setFontLoaded] = useState(false);
+  if (!fontLoaded) {
+    return (
+      <AppLoading
+        startAsync={fetchFonts}
+        onFinish={() => setFontLoaded(true)}
+      />
+    );
   }
 
   return (

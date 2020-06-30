@@ -74,13 +74,13 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    // fontFamily: 'open-sans-bold',
+    fontFamily: 'open-sans-bold',
     marginVertical: 5,
     textAlign: "center",
   },
   price: {
     fontSize: 18,
-    // fontFamily: 'open-sans',
+    fontFamily: 'open-sans',
     textAlign: "center",
     color: '#888'
   },
