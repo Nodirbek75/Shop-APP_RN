@@ -6,6 +6,7 @@ import {
   ScrollView,
   Image,
   Button,
+  Platform
 } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
@@ -48,9 +49,8 @@ ProductDetails.navigationOptions = (navData) => {
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
         <Item
           title={"orders"}
-          iconName={"ios-basket"}
-          iconSize={25}
-          onPress={() => navData.navigation.navigate("Orders")}
+          iconName={Platform.Os === 'android' ? 'md-cart' : 'ios-cart'}
+          onPress={() => navData.navigation.navigate("Cart")}
         />
       </HeaderButtons>
     ),
