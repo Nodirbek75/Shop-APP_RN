@@ -6,7 +6,7 @@ import {
   ScrollView,
   Image,
   Button,
-  Platform
+  Platform,
 } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
@@ -45,11 +45,20 @@ const ProductDetails = (props) => {
 ProductDetails.navigationOptions = (navData) => {
   return {
     headerTitle: navData.navigation.getParam("productTitle"),
+    headerLeft: () => (
+      <HeaderButtons HeaderButtonComponent={HeaderButton}>
+        <Item
+          title={"Menu"}
+          iconName={Platform.OS === "android" ? "md-menu" : "ios-menu"}
+          onPress={() => navData.navigation.toggleDrawer()}
+        />
+      </HeaderButtons>
+    ),
     headerRight: () => (
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
         <Item
           title={"orders"}
-          iconName={Platform.Os === 'android' ? 'md-cart' : 'ios-cart'}
+          iconName={Platform.OS === "android" ? "md-cart" : "ios-cart"}
           onPress={() => navData.navigation.navigate("Cart")}
         />
       </HeaderButtons>
