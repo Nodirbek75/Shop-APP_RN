@@ -14,7 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: EPERM: operation not permitted, copyfile 'C:\Users\Nodirbek\AppData\Local\Yarn\Cache\v4\npm-camelcase-5.3.1-e3c9b31569e106811df242f715725a1f4c494320\node_modules\camelcase\package.json' -> 'C:\Users\Nodirbek\Desktop\coding\React Native\shop_app\node_modules\camelcase\package.json'
+  Error: EPERM: operation not permitted, unlink 'C:\Users\Nodirbek\Desktop\coding\React Native\shop_app\node_modules\@babel\compat-data\node_modules\.bin'
 
 npm manifest: 
   {
@@ -27,9 +27,10 @@ npm manifest:
       "eject": "expo eject"
     },
     "dependencies": {
+      "@expo-google-fonts/inter": "^0.1.0",
       "@react-native-community/masked-view": "0.1.10",
       "expo": "~38.0.1",
-      "expo-font": "^8.2.1",
+      "expo-font": "~8.2.1",
       "expo-status-bar": "^1.0.0",
       "react": "~16.11.0",
       "react-dom": "~16.11.0",
@@ -40,6 +41,7 @@ npm manifest:
       "react-native-screens": "~2.9.0",
       "react-native-web": "~0.11.7",
       "react-navigation": "^4.4.0",
+      "react-navigation-drawer": "^2.5.0",
       "react-navigation-header-buttons": "^4.0.2",
       "react-navigation-stack": "^2.8.2",
       "react-redux": "^7.2.0",
@@ -1007,6 +1009,11 @@ Lockfile:
     integrity sha512-XQsZgjm2EcVUiZQf11UBJQfmZeEmOW8DpI1gsFeln6w0ae0ii4dMQEQ0kjl6DspdWX1aGY1/loyXnP0JS06e/A==
     dependencies:
       "@types/hammerjs" "^2.0.36"
+  
+  "@expo-google-fonts/inter@^0.1.0":
+    version "0.1.0"
+    resolved "https://registry.yarnpkg.com/@expo-google-fonts/inter/-/inter-0.1.0.tgz#399f068437824fcbf6aa3da5fcf490dba2af85a3"
+    integrity sha512-Y6GCqsUX6JwexQ2wmBkMiJBY6M2GpNQRTczzIGbBGhXWQxqGmP5awRcf0ZJV+OlLeJcKAzas/TW45ZLdpG3yzA==
   
   "@expo/vector-icons@^10.0.2":
     version "10.2.0"

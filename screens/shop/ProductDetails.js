@@ -45,15 +45,6 @@ const ProductDetails = (props) => {
 ProductDetails.navigationOptions = (navData) => {
   return {
     headerTitle: navData.navigation.getParam("productTitle"),
-    headerLeft: () => (
-      <HeaderButtons HeaderButtonComponent={HeaderButton}>
-        <Item
-          title={"Menu"}
-          iconName={Platform.OS === "android" ? "md-menu" : "ios-menu"}
-          onPress={() => navData.navigation.toggleDrawer()}
-        />
-      </HeaderButtons>
-    ),
     headerRight: () => (
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
         <Item
