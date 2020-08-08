@@ -20,7 +20,7 @@ const UserProductsScreen = (props) => {
           price={itemsData.item.price}
           onViewDetails={() => {}}
           onAddToCart={() => {}}
-        />
+        ></ProductItem>
       )}
     />
   );

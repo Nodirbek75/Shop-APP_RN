@@ -1,11 +1,12 @@
 import React from "react";
-import { FlatList, Platform } from "react-native";
+import { FlatList, Platform, Button } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 
 import HeaderButton from "../../components/UI/HeaderButton";
 import ProductItem from "../../components/shop/ProductItem";
 import { addToCart } from "../../store/actions/cart";
+import Colors from "../../constants/colors";
 
 const ProductOverview = (props) => {
   const products = useSelector((state) => state.products.availableProducts);
@@ -17,6 +18,13 @@ const ProductOverview = (props) => {
     dispatch(addToCart(addedProduct));
   };
 
+  const selectProductHandler = (id, title) => {
+    props.navigation.navigate("Details", {
+      productId: id,
+      productTitle: title,
+    });
+  };
+
   return (
     <FlatList
       data={products}
@@ -25,14 +33,23 @@ const ProductOverview = (props) => {
           img={itemData.item.imgUrl}
           title={itemData.item.title}
           price={itemData.item.price}
-          onViewDetails={() =>
-            props.navigation.navigate("Details", {
-              productId: itemData.item.id,
-              productTitle: itemData.item.title,
-            })
+          onSelect={() =>
+            selectProductHandler(itemData.item.id, itemData.item.title)
           }
-          onAddToCart={() => addProductToCart(itemData.item.id)}
-        />
+        >
+          <Button
+            color={Colors.primary}
+            title={"View Details"}
+            onPress={() =>
+              selectProductHandler(itemData.item.id, itemData.item.title)
+            }
+          />
+          <Button
+            color={Colors.primary}
+            title={"Add To Cart"}
+            onPress={() => addProductToCart(itemData.item.id)}
+          />
+        </ProductItem>
       )}
     />
   );
@@ -54,7 +71,7 @@ ProductOverview.navigationOptions = (navData) => {
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
         <Item
           title={"orders"}
-          iconName={Platform.Os === 'android' ? 'md-cart' : 'ios-cart'}
+          iconName={Platform.Os === "android" ? "md-cart" : "ios-cart"}
           onPress={() => navData.navigation.navigate("Cart")}
         />
       </HeaderButtons>
