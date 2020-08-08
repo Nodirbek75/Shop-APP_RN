@@ -19,7 +19,7 @@ const fetchFonts = () => {
 const rootReducer = combineReducers({
   products: productsReducer,
   cart: cartReducer,
-  orders: ordersReducer
+  orders: ordersReducer,
 });
 
 const store = createStore(rootReducer);
