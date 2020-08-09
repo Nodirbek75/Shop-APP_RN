@@ -7,10 +7,11 @@ import {
   ScrollView,
   Platform,
 } from "react-native";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 
 import HeaderButton from "../../components/UI/HeaderButton";
+import { createProduct, updateProduct } from "../../store/actions/products";
 
 const EditProductScreen = (props) => {
   const productId = props.navigation.getParam("productId");
@@ -27,9 +28,15 @@ const EditProductScreen = (props) => {
     editedProduct ? editedProduct.description : ""
   );
 
+  const dispatch = useDispatch();
+
   const submitHandler = useCallback(() => {
-    console.log("Submiting!!!");
-  }, []);
+    if (editedProduct) {
+      dispatch(updateProduct(editedProduct.id, title, imgUrl, description));
+    } else {
+      dispatch(createProduct(title, imgUrl, description, +price));
+    }
+  }, [dispatch, title, imgUrl, description, price]);
 
   useEffect(() => {
     props.navigation.setParams({ submit: submitHandler });
@@ -42,7 +49,7 @@ const EditProductScreen = (props) => {
           <TextInput
             style={styles.input}
             value={title}
-            onChange={(text) => setTitle(text)}
+            onChangeText={(text) => setTitle(text)}
           />
         </View>
         <View style={styles.inputContainer}>
@@ -50,7 +57,7 @@ const EditProductScreen = (props) => {
           <TextInput
             style={styles.input}
             value={imgUrl}
-            onChange={(text) => setImgUrl(text)}
+            onChangeText={(text) => setImgUrl(text)}
           />
         </View>
         {!editedProduct ? (
@@ -59,7 +66,7 @@ const EditProductScreen = (props) => {
             <TextInput
               style={styles.input}
               value={price}
-              onChange={(text) => setPrice(text)}
+              onChangeText={(text) => setPrice(text)}
             />
           </View>
         ) : null}
@@ -68,7 +75,7 @@ const EditProductScreen = (props) => {
           <TextInput
             style={styles.input}
             value={description}
-            onChange={(text) => setDescription(text)}
+            onChangeText={(text) => setDescription(text)}
           />
         </View>
       </View>
@@ -77,7 +84,7 @@ const EditProductScreen = (props) => {
 };
 
 EditProductScreen.navigationOptions = (navData) => {
-    const submitFn = navData.navigation.getParam('submit');
+  const submitFn = navData.navigation.getParam("submit");
   return {
     headerTitle: navData.navigation.getParam("productId")
       ? "Edit Product"
