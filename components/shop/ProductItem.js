@@ -19,7 +19,7 @@ const ProductItem = (props) => {
   return (
     <View style={styles.product}>
       <TouchableCmp onPress={props.onSelect} useForeground>
-        <View >
+        <View>
           <View style={styles.imgContainer}>
             <Image style={styles.img} source={{ uri: props.img }} />
           </View>
@@ -27,9 +27,7 @@ const ProductItem = (props) => {
             <Text style={styles.title}>{props.title}</Text>
             <Text style={styles.price}>${props.price.toFixed(2)}</Text>
           </View>
-          <View style={styles.actions}>
-            {props.children}
-          </View>
+          <View style={styles.actions}>{props.children}</View>
         </View>
       </TouchableCmp>
     </View>
@@ -58,25 +56,25 @@ const styles = StyleSheet.create({
     height: "100%",
   },
   details: {
-    height: "15%",
+    height: "17%",
   },
   title: {
     fontSize: 20,
-    fontFamily: 'open-sans-bold',
+    fontFamily: "open-sans-bold",
     marginVertical: 5,
     textAlign: "center",
   },
   price: {
     fontSize: 18,
-    fontFamily: 'open-sans',
+    fontFamily: "open-sans",
     textAlign: "center",
-    color: '#888'
+    color: "#888",
   },
   actions: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    height: "25%",
+    height: "23%",
     marginHorizontal: 15,
   },
 });
