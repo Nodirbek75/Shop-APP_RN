@@ -8,6 +8,7 @@ import {
   TouchableNativeFeedback,
   Platform,
 } from "react-native";
+import Card from "../UI/Card";
 
 const ProductItem = (props) => {
   let TouchableCmp = TouchableHighlight;
@@ -17,7 +18,7 @@ const ProductItem = (props) => {
   }
 
   return (
-    <View style={styles.product}>
+    <Card style={styles.product}>
       <TouchableCmp onPress={props.onSelect} useForeground>
         <View>
           <View style={styles.imgContainer}>
@@ -30,21 +31,14 @@ const ProductItem = (props) => {
           <View style={styles.actions}>{props.children}</View>
         </View>
       </TouchableCmp>
-    </View>
+    </Card>
   );
 };
 
 const styles = StyleSheet.create({
   product: {
-    shadowColor: "black",
-    shadowOpacity: 0.3,
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 8,
-    elevation: 5,
     height: 300,
     margin: 20,
-    borderRadius: 10,
-    backgroundColor: "white",
     overflow: "hidden",
   },
   imgContainer: {
